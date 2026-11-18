@@ -1,0 +1,8 @@
+node_modules/
+dist/
+coverage/
+results/*
+!results/.gitkeep
+!results/history.csv
+.env
+.DS_Store

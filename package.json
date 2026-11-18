@@ -1,0 +1,33 @@
+{
+  "name": "post-evals",
+  "version": "0.1.0",
+  "private": true,
+  "description": "LLM output-evaluation harness",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "jest",
+    "eval": "tsx src/cli.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.15.0",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.15",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.73.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.10.0",
+    "ajv": "^8.20.0",
+    "commander": "^14.0.3",
+    "yaml": "^2.9.1"
+  }
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "length",
+    "input": "Summarize in one or two sentences: The city council approved a new bike lane network on Tuesday after months of debate. Construction begins in spring and is expected to finish within two years.",
+    "metadata": {
+      "mockOutput": "The city council approved a new bike lane network; construction starts in spring and should finish within two years.",
+      "length": { "unit": "words", "min": 5, "max": 40 }
+    }
+  },
+  {
+    "id": "keywords",
+    "input": "Summarize in one sentence: Acme Corp reported revenue growth of 12% in Q3 while operating costs stayed flat. The CEO attributed the growth to the new subscription tier.",
+    "metadata": {
+      "mockOutput": "Acme Corp's Q3 revenue grew 12% thanks to the new subscription tier, with costs flat.",
+      "keywords": { "present": ["Acme", "12%", "subscription"], "absent": ["layoffs"] }
+    }
+  },
+  {
+    "id": "regex",
+    "input": "Summarize in one sentence: A trial of 2,400 participants found the vaccine reduced symptomatic infections by 85%.",
+    "metadata": {
+      "mockOutput": "The trial of 2,400 participants found an 85% reduction in symptomatic infections.",
+      "regex": { "pattern": "\\d+%" }
+    }
+  },
+  {
+    "id": "json-schema",
+    "input": "Summarize this review as JSON with string fields \"summary\" and \"sentiment\" (positive, negative or neutral), and nothing else: The battery lasts two days but the screen scratches easily.",
+    "metadata": {
+      "mockOutput": "{\"summary\":\"Long battery life but the screen scratches easily.\",\"sentiment\":\"neutral\"}",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "summary": { "type": "string" },
+          "sentiment": { "type": "string", "enum": ["positive", "negative", "neutral"] }
+        },
+        "required": ["summary", "sentiment"],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "id": "exact",
+    "input": "Reply with exactly one word, positive, negative or neutral, for the sentiment of: 'The staff were rude and the food was cold.'",
+    "expected": "negative",
+    "metadata": { "mockOutput": "negative", "match": "exact" }
+  },
+  {
+    "id": "fuzzy",
+    "input": "Write a headline of at most eight words for: Scientists discover a new species of deep-sea octopus off the coast of Chile.",
+    "expected": "Scientists discover new deep-sea octopus species off Chile",
+    "metadata": {
+      "mockOutput": "Scientists discover a new deep-sea octopus species off Chile",
+      "match": "fuzzy"
+    }
+  },
+  {
+    "id": "judge",
+    "input": "Summarize in one sentence: The museum will extend its opening hours to 9pm on Fridays starting in June, and admission remains free for children under twelve.",
+    "metadata": {
+      "mockOutput": "Starting in June the museum opens until 9pm on Fridays, with free admission for under-12s.",
+      "judge": true
+    }
+  },
+  {
+    "id": "consistency",
+    "input": "Reply as JSON {\"sentiment\": \"...\"} where sentiment is positive, negative or neutral, for: 'Great value, would buy again.'",
+    "metadata": { "mockOutput": "{\"sentiment\":\"positive\"}", "consistency": true }
+  },
+  {
+    "id": "combined",
+    "input": "Summarize in one sentence: Flights between Lisbon and Porto will increase to 12 daily departures from March, up from 8.",
+    "metadata": {
+      "mockOutput": "From March, Lisbon-Porto flights rise to 12 daily departures from 8.",
+      "length": { "unit": "chars", "max": 120 },
+      "keywords": { "present": ["Lisbon", "Porto"] },
+      "regex": { "pattern": "\\b12\\b" }
+    }
+  }
+]

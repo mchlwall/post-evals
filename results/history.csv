@@ -1,0 +1,3 @@
+timestamp,suite,provider,model,pass_rate,mean_score,git_sha,cases
+2026-11-18T14:36:21.865Z,basic,mock,mock-dry-run,1.0000,0.9852,3467c5d,9
+2026-11-18T14:47:51.516Z,basic,mock,mock-dry-run,1.0000,0.9852,3467c5d,9
